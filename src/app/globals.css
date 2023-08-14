@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffefa1;
+  background-color: red;
 }
 
 .navMenu {
