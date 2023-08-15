@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import topImage from "../../public/Season Everything With Love.svg";
+import ThemeButton from "./ThemeButton";
 
 export default function Header() {
   return (
@@ -22,6 +23,7 @@ export default function Header() {
             <ul>|</ul>
             <ul className="cursor-pointer hover:underline">English</ul>
           </li>
+          <ThemeButton />
           <MenuIcon className="text-4xl sm:hidden" />
         </div>
       </div>
