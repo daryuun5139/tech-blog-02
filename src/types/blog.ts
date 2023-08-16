@@ -4,7 +4,7 @@ export type Blog = {
   id: string;
   content: string;
   title: string;
-  category?: Category;
+  category: Category;
   eyecatch?: MicroCMSImage;
   createdAt: string;
   updatedAt: string;
@@ -33,5 +33,9 @@ export type ArticleCardProps = {
 };
 
 export type PublishGroup = {
+  [key: string]: number;
+};
+
+export type categoryArray = {
   [key: string]: number;
 };

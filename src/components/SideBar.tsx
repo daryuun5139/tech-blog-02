@@ -1,7 +1,7 @@
-import { Category } from "@/types/blog";
+import { Blog, Category } from "@/types/blog";
 import Link from "next/link";
 import Image from "next/image";
-import { getList, publishAtGroup } from "@/lib/dataQuery";
+import { categoryCount, getList, publishAtGroup } from "@/lib/dataQuery";
 import aboutImage from "../../public/animal_seal.svg";
 
 type SideBarProps = {
@@ -11,6 +11,7 @@ type SideBarProps = {
 const SideBar = async () => {
   const { archiveData } = await publishAtGroup();
   const { categories } = await getList();
+  const category_arr = await categoryCount();
 
   return (
     <div className="relative hidden w-[34%] lg:block">
@@ -46,17 +47,18 @@ const SideBar = async () => {
               return (
                 <>
                   <Link
-                    href={`/category/${item.category}`}
-                    className="mx-3 my-2 flex w-[40%] rounded-xl border-[1px] border-gray-300  p-2 text-center text-sm "
+                    href={`/category/${item.category}/page/1`}
+                    className="mx-2 my-2 flex w-[42%] rounded-xl border-[1px] border-gray-300 p-2 pl-1 text-center text-sm "
                   >
                     <Image
-                      className="mr-2"
+                      className="mr-1"
                       width={20}
                       height={20}
                       src={item.iconimage.url}
                       alt={item.category}
                     />
-                    {item.category}
+                    <span>{item.category}</span>
+                    <span>({category_arr[item.category]})</span>
                   </Link>
                 </>
               );
@@ -69,7 +71,7 @@ const SideBar = async () => {
           <div className="flex flex-wrap justify-evenly p-2">
             {Object.keys(archiveData).map((item) => (
               <Link
-                href={`/archive/${item}`}
+                href={`/archive/${item}/page/1`}
                 className="m-2 flex rounded-xl border-[1px] border-gray-300 p-2 text-center text-sm "
               >
                 {item.slice(0, 4) + "年" + item.slice(4) + "月"}

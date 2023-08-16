@@ -1,3 +1,4 @@
+//記事個別ページ（/articles/[id]/page.tsx）
 import { getList, getDetail } from "@/lib/dataQuery";
 import type { Blog } from "@/types/blog";
 import Image from "next/image";
@@ -7,7 +8,7 @@ type paramsType = {
 };
 
 export async function generateStaticParams(): Promise<paramsType[]> {
-  const { contents, categories } = await getList();
+  const { contents } = await getList();
 
   const paths = contents.map((post: Blog) => {
     return {
@@ -16,15 +17,6 @@ export async function generateStaticParams(): Promise<paramsType[]> {
   });
 
   return [...paths];
-}
-
-// titleタグに記事のタイトルを動的に入れる
-export async function generateMetadata({ params }: { params: paramsType }) {
-  const pageTitle = await getDetail(params.id);
-
-  return {
-    title: pageTitle.title,
-  };
 }
 
 export default async function StaticDetailPage({ params: { id } }: { params: { id: string } }) {

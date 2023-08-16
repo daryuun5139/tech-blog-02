@@ -52,7 +52,7 @@ export default function Header() {
           <Link href="/works" className="navMenu">
             WORKS
           </Link>
-          <Link href="/articles" className="navMenu">
+          <Link href="/articles/page/1" className="navMenu">
             ARTICLES
           </Link>
         </li>

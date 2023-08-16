@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <div className="mx-auto flex w-[550px] flex-col sm:container lg:w-[950px]">
             <Header />
-            {children}
+            <div className="min-h-[1200px]">{children}</div>
             <Footer />
           </div>
         </Providers>

@@ -5,6 +5,7 @@ import type { Blog } from "@/types/blog";
 
 export default async function Home() {
   const { contents, totalCount } = await getList();
+  const pageName1 = "articles";
 
   return (
     <>
@@ -29,7 +30,7 @@ export default async function Home() {
           })}
         </ul>
       </div>
-      <Pagination totalCount={totalCount} />
+      <Pagination totalCount={totalCount} pageName1={pageName1} />
     </>
   );
 }
