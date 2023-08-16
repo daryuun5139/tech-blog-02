@@ -1,7 +1,7 @@
 import { client } from "@/lib/client";
 import type { MicroCMSQueries } from "microcms-js-sdk";
 import type { Blog, Category, PublishGroup, categoryArray } from "@/types/blog";
-import { formatDate } from "@/lib/timeFormat";
+import { formatDate1 } from "@/lib/timeFormat";
 
 // ブログ、カテゴリ、公開日一覧を取得
 export const getList = async (queries?: MicroCMSQueries) => {
@@ -61,7 +61,7 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
 //公開日一覧を月ごとにグループ化
 export const publishAtGroup = async () => {
   const { publishAt } = await getList();
-  const publishAtArray = publishAt.map((content) => formatDate(content.publishedAt));
+  const publishAtArray = publishAt.map((content) => formatDate1(content.publishedAt));
   const publishGroup: PublishGroup = {} as PublishGroup;
 
   publishAtArray.forEach((item) => {

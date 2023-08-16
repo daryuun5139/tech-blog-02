@@ -8,10 +8,11 @@ type paramsType = {
   number: string;
 };
 
+const PER_PAGE = 5;
+
 // generateStaticParams：ビルド時にreturnの内容に基づいて静的ルートを生成する。
 export async function generateStaticParams(): Promise<paramsType[]> {
   const { totalCount } = await getList();
-  const PER_PAGE = 5;
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
   const paths = range(1, Math.ceil(totalCount / PER_PAGE)).map((num: number) => {
@@ -32,12 +33,13 @@ export default async function ArticlePageId({
   const currentNumber = Number(number);
   const filterContents = await getList({ offset: (currentNumber - 1) * 5, limit: 5 });
   const { totalCount } = await getList();
-  console.log((currentNumber - 1) * 5);
 
   return (
     <>
       {/* 記事一覧ラッパー */}
-      <h2 className="text-center text-xl font-bold">記事一覧</h2>
+      <h2 className="text-center text-xl font-bold">
+        記事一覧 ({currentNumber} / {Math.ceil(totalCount / PER_PAGE)})
+      </h2>
       <div className="flex flex-col justify-center p-2">
         <ul>
           {filterContents.contents.map((post: Blog) => {
@@ -57,7 +59,7 @@ export default async function ArticlePageId({
           })}
         </ul>
       </div>
-      <Pagination totalCount={totalCount} pageName1={pageName1} />
+      <Pagination totalCount={totalCount} pageName1={pageName1} currentNumber={currentNumber} />
     </>
   );
 }

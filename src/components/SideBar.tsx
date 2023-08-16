@@ -1,4 +1,4 @@
-import { Blog, Category } from "@/types/blog";
+import { Category } from "@/types/blog";
 import Link from "next/link";
 import Image from "next/image";
 import { categoryCount, getList, publishAtGroup } from "@/lib/dataQuery";
@@ -48,7 +48,7 @@ const SideBar = async () => {
                 <>
                   <Link
                     href={`/category/${item.category}/page/1`}
-                    className="mx-2 my-2 flex w-[42%] rounded-xl border-[1px] border-gray-300 p-2 pl-1 text-center text-sm "
+                    className="label-hover mx-2 my-2 flex w-[42%] rounded-xl border-[1px] border-gray-300 p-2 pl-1 text-center text-sm "
                   >
                     <Image
                       className="mr-1"
@@ -72,7 +72,7 @@ const SideBar = async () => {
             {Object.keys(archiveData).map((item) => (
               <Link
                 href={`/archive/${item}/page/1`}
-                className="m-2 flex rounded-xl border-[1px] border-gray-300 p-2 text-center text-sm "
+                className="label-hover m-2 flex rounded-xl border-[1px] border-gray-300 p-2 text-center text-sm "
               >
                 {item.slice(0, 4) + "年" + item.slice(4) + "月"}
                 <span> </span>({archiveData[item]})

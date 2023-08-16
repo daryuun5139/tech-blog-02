@@ -16,7 +16,7 @@ const ArticleCard = ({
   return (
     <Link
       href={`/articles/${id}`}
-      className="mb-8 mt-3 flex h-80 flex-row items-center justify-between rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] p-2"
+      className="card-hover mb-8 mt-3 flex h-80 flex-row items-center justify-between rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] p-2"
     >
       {/* 画像ラッパー */}
       <div className="flex h-full w-full">

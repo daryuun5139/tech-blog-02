@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <>
       {/* 新着記事一覧ラッパー */}
-      <h2 className="text-center text-xl font-bold">新着記事一覧</h2>
+      <h2 className="title-deco-line text-center text-xl font-bold">新着記事一覧</h2>
       <div className="flex flex-col justify-center p-2">
         <ul>
           {contents.slice(0, 5).map((post: Blog) => {
