@@ -195,7 +195,7 @@ body {
   cursor: pointer;
 }
 
-/* アコーディオンアニメーション */
+/* アコーディオンアニメーション(カテゴリ、アーカイブ） */
 .acd-check {
   display: none;
 }
@@ -229,5 +229,45 @@ body {
   height: 170px;
   opacity: 1;
   padding: 10px;
+  visibility: visible;
+}
+
+/* アコーディオンアニメーション(ハンバーガーメニュー） */
+.hamburger-acd-check {
+  display: none;
+}
+
+.hamburger-acd-label {
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburger-acd-label:after {
+  content: url(../../public/other-icon/bars-solid.svg);
+  position: absolute;
+  right: 5px;
+  /* top: 36px; */
+  width: 28px;
+}
+
+.hamburger-acd-content {
+  height: 0;
+  opacity: 0;
+  transition: 0.3s;
+  visibility: hidden;
+}
+
+.hamburger-acd-check:checked + .hamburger-acd-label:after {
+  content: url(../../public/other-icon/xmark-solid.svg);
+  position: absolute;
+  right: 5px;
+  /* top: 34px; */
+}
+
+.hamburger-acd-check:checked + .hamburger-acd-label + .hamburger-acd-content {
+  height: 160px;
+  opacity: 1;
+  padding: 10px;
+  border-radius: 6px;
   visibility: visible;
 }

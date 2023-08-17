@@ -25,6 +25,7 @@ const SideBar = async () => {
             height="0"
             alt="aboutImage"
             className="h-auto w-full rounded-md"
+            loading="eager"
           />
           <div className="flex w-full flex-row flex-wrap justify-start p-4">
             <p className="mb-2">ものを作ることが好きなフロントエンジニアです。</p>

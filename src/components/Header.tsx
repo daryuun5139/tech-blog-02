@@ -17,7 +17,9 @@ export default async function Header() {
 
   return (
     <div className="mx-auto flex w-full flex-col items-center lg:w-[90%] ">
-      <div className="flex w-full flex-row items-center justify-between sm:justify-end md:w-[90%]">
+      {/* ヒーローセクション */}
+      <div className="relative flex w-[90%] flex-row items-center justify-between sm:w-full sm:justify-end md:w-[90%]">
+        {/* 画面縮小時表示イメージ */}
         <Link href="/">
           <Image
             width="0"
@@ -27,14 +29,44 @@ export default async function Header() {
             alt="top-image-sm"
           />
         </Link>
-        <div className="flex flex-row items-center gap-2 pr-3">
+        {/* 日本語、英語切り替え&ダークモードボタン */}
+        <div className="mr-[60px] mt-2 flex items-center gap-1 sm:mr-0">
           <li className="flex flex-row gap-2 text-sm">
             <ul className="menu-text-hover">日本語</ul>
             <ul>|</ul>
             <ul className="menu-text-hover">English</ul>
           </li>
           <ThemeButton />
-          <MenuIcon className="text-4xl sm:hidden" />
+        </div>
+        {/* ハンバーガーメニュー */}
+        <div className="absolute left-0 top-0 flex w-full flex-col sm:hidden">
+          <input id="hamburger-acd-check1" className="hamburger-acd-check" type="checkbox" />
+          <label
+            className="hamburger-acd-label right-[-440px] top-9 z-20 h-10 w-10 text-center text-lg font-bold text-black"
+            htmlFor="hamburger-acd-check1"
+          ></label>
+          <ul className="hamburger-acd-content absolute left-0 top-0 z-10 flex w-full flex-col items-center justify-between gap-2 bg-[#773b01] py-2 text-xl ">
+            <li>
+              <Link href="/" className="text-[#FFFDF0]">
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link href="/profile" className="text-[#FFFDF0]">
+                PROFILE
+              </Link>
+            </li>
+            <li>
+              <Link href="/works" className="text-[#FFFDF0]">
+                WORKS
+              </Link>
+            </li>
+            <li>
+              <Link href="/articles/page/1" className="rou text-[#FFFDF0]">
+                ARTICLES
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
       {/* メイン画像 */}
@@ -51,7 +83,7 @@ export default async function Header() {
       </div>
 
       {/* ナビゲーションバー */}
-      <div className="hidden h-12 w-full items-center justify-center sm:block md:w-[90%] ">
+      <div className="hidden h-12 w-full items-center justify-center sm:block md:w-[90%]">
         <li className="flex h-12 flex-row items-center justify-between border-y-[1px] border-[#773b01] px-12">
           <Link href="/" className="navMenu menu-text-hover">
             HOME
@@ -74,7 +106,6 @@ export default async function Header() {
           className="acd-label text-center text-lg font-bold text-black"
           htmlFor="category-acd-check1"
         >
-          {" "}
           CATEGORY
         </label>
         <div className="acd-content flex w-full flex-row flex-wrap justify-center ">
