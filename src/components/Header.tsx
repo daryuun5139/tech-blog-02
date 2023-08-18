@@ -28,16 +28,17 @@ export default async function Header() {
               className="h-24 w-24 pl-3 pt-2 sm:hidden"
               src={topImage}
               alt="top-image-sm"
+              priority={true}
             />
           </a>
         </Link>
         {/* 日本語、英語切り替え&ダークモードボタン */}
         <div className="mr-[60px] mt-2 flex items-center gap-1 sm:mr-0">
-          <li className="flex flex-row gap-2 text-sm">
-            <ul className="menu-text-hover">日本語</ul>
-            <ul>|</ul>
-            <ul className="menu-text-hover">English</ul>
-          </li>
+          <div className="flex flex-row gap-2 text-sm">
+            <span className="menu-text-hover">日本語</span>
+            <span>|</span>
+            <span className="menu-text-hover">English</span>
+          </div>
           <ThemeButton />
         </div>
         {/* ハンバーガーメニュー */}
@@ -73,33 +74,44 @@ export default async function Header() {
       </div>
       {/* メイン画像 */}
       <div>
-        <Link href="/">
-          <Image
-            className="hidden h-28 w-28 sm:block"
-            width="0"
-            height="0"
-            src={topImage}
-            alt="top-image"
-          />
+        <Link href="/" legacyBehavior>
+          <a aria-label="Home">
+            <Image
+              className="hidden h-28 w-28 sm:block"
+              width="0"
+              height="0"
+              src={topImage}
+              alt="top-image"
+              priority={true}
+            />
+          </a>
         </Link>
       </div>
 
       {/* ナビゲーションバー */}
       <div className="hidden h-12 w-full items-center justify-center sm:block md:w-[90%]">
-        <li className="flex h-12 flex-row items-center justify-between border-y-[1px] border-[#773b01] px-12">
-          <Link href="/" className="navMenu menu-text-hover">
-            HOME
-          </Link>
-          <Link href="/profile" className="navMenu menu-text-hover">
-            PROFILE
-          </Link>
-          <Link href="/works" className="navMenu menu-text-hover">
-            WORKS
-          </Link>
-          <Link href="/articles/page/1" className="navMenu menu-text-hover">
-            ARTICLES
-          </Link>
-        </li>
+        <ul className="flex h-12 flex-row items-center justify-between border-y-[1px] border-[#773b01] px-12">
+          <li>
+            <Link href="/" className="navMenu menu-text-hover">
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link href="/profile" className="navMenu menu-text-hover">
+              PROFILE
+            </Link>
+          </li>
+          <li>
+            <Link href="/works" className="navMenu menu-text-hover">
+              WORKS
+            </Link>
+          </li>
+          <li>
+            <Link href="/articles/page/1" className="navMenu menu-text-hover">
+              ARTICLES
+            </Link>
+          </li>
+        </ul>
       </div>
       {/* カテゴリ一覧ボックス*/}
       <div className="mt-5 flex w-[88%] flex-col items-center justify-between rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] py-3 lg:hidden">

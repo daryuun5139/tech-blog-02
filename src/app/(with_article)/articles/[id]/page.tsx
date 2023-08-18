@@ -54,10 +54,12 @@ export default async function StaticDetailPage({ params: { id } }: { params: { i
           </div>
           <Image
             src={post.eyecatch?.url ?? ""}
-            width={550}
-            height={300}
+            priority={true}
             alt={post.title}
             className="w-full rounded-sm object-cover"
+            width="0"
+            height="0"
+            sizes="100vw"
           />
           <div
             dangerouslySetInnerHTML={{

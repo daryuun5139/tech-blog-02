@@ -23,10 +23,11 @@ const ArticleCard = ({
         <div className="flex items-center justify-center rounded-sm border-[1px] border-black bg-white">
           <Image
             src={imagePath}
-            width="240"
-            height="240"
             alt={title}
-            className="rounded-sm object-cover"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="h-full w-auto rounded-sm object-cover"
           />
         </div>
       </div>
