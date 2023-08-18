@@ -21,7 +21,7 @@ export default async function Header() {
       <div className="relative flex w-[90%] flex-row items-center justify-between sm:w-full sm:justify-end md:w-[90%]">
         {/* 画面縮小時表示イメージ */}
         <Link href="/" legacyBehavior>
-          <a>
+          <a aria-label="Home">
             <Image
               width="0"
               height="0"
