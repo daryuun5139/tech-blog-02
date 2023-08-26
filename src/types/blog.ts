@@ -32,6 +32,15 @@ export type ArticleCardProps = {
   upDate: string;
 };
 
+export type ArticleDetail = {
+  id: string;
+  content: string;
+  category: Category;
+  title: string;
+  imagePath: string;
+  publishedAt: string;
+};
+
 export type PublishGroup = {
   [key: string]: number;
 };

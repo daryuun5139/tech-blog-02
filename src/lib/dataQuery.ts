@@ -87,3 +87,17 @@ export const categoryCount = async () => {
   }
   return categoryArray;
 };
+
+// ブログのプレビューを取得
+export const getDraft = async (
+  contentId: string,
+  queries?: MicroCMSQueries & { draftKey: string }
+) => {
+  const draftData = await client.get<Blog>({
+    customRequestInit: { cache: "no-store" },
+    endpoint: "blogs",
+    contentId,
+    queries,
+  });
+  return draftData;
+};
