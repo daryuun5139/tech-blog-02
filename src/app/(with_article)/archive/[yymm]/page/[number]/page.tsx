@@ -26,6 +26,13 @@ export async function generateStaticParams(): Promise<paramsType[]> {
   return [...paths];
 }
 
+//generateMetadata : Metadataのtitleタグに月別のタイトルを動的に入れる
+export async function generateMetadata({ params: yymm }: { params: { yymm: string } }) {
+  return {
+    title: `${yymm.yymm.slice(0, 4)}年${yymm.yymm.slice(4)}月の記事一覧`,
+  };
+}
+
 //paramsはURLのパスパラメータが格納されている。
 //{ params: { id } }: { params: { id: string }は前半分が分割代入引数、後半部分は型注釈。
 export default async function ArchivePage({

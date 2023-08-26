@@ -3,6 +3,11 @@ import ArticleCard from "@/components/ArticleCard";
 import { Pagination } from "@/components/Paginaiton";
 import { getList } from "@/lib/dataQuery";
 import { Blog } from "@/types/blog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "記事一覧",
+};
 
 type paramsType = {
   number: string;
@@ -24,6 +29,8 @@ export async function generateStaticParams(): Promise<paramsType[]> {
   return [...paths];
 }
 
+//paramsはURLのパスパラメータが格納されている。
+//{ params: { id } }: { params: { id: string }は前半分が分割代入引数、後半部分は型注釈。
 export default async function ArticlePageId({
   params: { number },
 }: {

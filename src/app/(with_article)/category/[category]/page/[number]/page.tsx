@@ -25,6 +25,13 @@ export async function generateStaticParams(): Promise<paramsType[]> {
   return [...paths];
 }
 
+//generateMetadata : Metadataのtitleタグにカテゴリのタイトルを動的に入れる
+export async function generateMetadata({ params: category }: { params: { category: string } }) {
+  return {
+    title: `${category.category}の記事一覧`,
+  };
+}
+
 //paramsはURLのパスパラメータが格納されている。
 //{ params: { id } }: { params: { id: string }は前半分が分割代入引数、後半部分は型注釈。
 export default async function CategoryPage({

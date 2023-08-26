@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "制作実績",
+};
+
 export default function Works() {
   return (
     <>
