@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CreateIcon from "@mui/icons-material/Create";
 import UpdateIcon from "@mui/icons-material/Update";
-import type { ArticleCardProps } from "@/types/blog";
+import type { ArticleCardPropsType } from "@/types/blog";
 
 const ArticleCard = ({
   id,
@@ -12,7 +12,7 @@ const ArticleCard = ({
   imagePath,
   date,
   upDate,
-}: ArticleCardProps) => {
+}: ArticleCardPropsType) => {
   return (
     <Link
       href={`/articles/${id}`}
@@ -34,13 +34,16 @@ const ArticleCard = ({
       {/* テキストラッパー */}
       <div className="w-[65%} relative flex h-[90%] flex-col bg-[#FFFDF0] px-2">
         <h2 className="mb-2 items-start  text-lg font-bold text-black">{title}</h2>
-        <div
-          className="text-md pb-2 text-black"
-          dangerouslySetInnerHTML={{
-            __html: `${content}`,
-          }}
-        ></div>
-        <div className="flex ">
+        {content.map(
+          (item, id) =>
+            item.fieldId === "markdown" && (
+              <div key={id}>
+                <div dangerouslySetInnerHTML={{ __html: item.markdown }} />
+              </div>
+            )
+        )}
+
+        <div className="flex">
           <p className="text-md rounded-full border-[1px] border-black  px-2 py-[0.5px] text-center text-black">
             {category?.category}
           </p>

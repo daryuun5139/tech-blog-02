@@ -1,18 +1,25 @@
 import type { MicroCMSImage } from "microcms-js-sdk";
 
-export type Blog = {
+export type ArticleType = {
   id: string;
-  content: string;
-  title: string;
-  category: Category;
-  eyecatch?: MicroCMSImage;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
+  title: string;
+  mainImage: MicroCMSImage;
+  category: CategoryType;
+  mainText: TextElementType[];
 };
 
-export type Category = {
+export type TextElementType = {
+  fieldId: "richEditor" | "markdown" | "richlink";
+  richEditor: string;
+  markdown: string;
+  richlink: string;
+};
+
+export type CategoryType = {
   id: string;
   category: string;
   createdAt: string;
@@ -22,20 +29,20 @@ export type Category = {
   iconimage: MicroCMSImage;
 };
 
-export type ArticleCardProps = {
+export type ArticleCardPropsType = {
   id: string;
-  content: string;
+  content: TextElementType[];
   title: string;
-  category?: Category;
+  category: CategoryType;
   imagePath: string;
   date: string;
   upDate: string;
 };
 
-export type ArticleDetail = {
+export type ArticleDetailPropsType = {
   id: string;
-  content: string;
-  category: Category;
+  content: TextElementType[];
+  category: CategoryType;
   title: string;
   imagePath: string;
   publishedAt: string;

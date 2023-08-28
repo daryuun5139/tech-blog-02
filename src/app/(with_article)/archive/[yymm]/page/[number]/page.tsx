@@ -2,7 +2,7 @@
 import ArticleCard from "@/components/ArticleCard";
 import { getList, publishAtGroup } from "@/lib/dataQuery";
 import { Pagination } from "@/components/Paginaiton";
-import { Blog } from "@/types/blog";
+import { ArticleType } from "@/types/blog";
 
 type paramsType = {
   yymm: string;
@@ -61,15 +61,15 @@ export default async function ArchivePage({
       </h2>
       <div className="flex flex-col justify-center p-2">
         <ul>
-          {filterContents.contents.map((post: Blog) => {
+          {filterContents.contents.map((post: ArticleType) => {
             return (
               <li key={post.id}>
                 <ArticleCard
                   id={post.id}
-                  content={post.content}
+                  content={post.mainText}
                   title={post.title}
                   category={post.category}
-                  imagePath={post.eyecatch?.url ?? ""}
+                  imagePath={post.mainImage.url ?? ""}
                   date={post.publishedAt ?? ""}
                   upDate={post.revisedAt ?? ""}
                 />

@@ -2,7 +2,7 @@
 import ArticleCard from "@/components/ArticleCard";
 import { Pagination } from "@/components/Paginaiton";
 import { getList } from "@/lib/dataQuery";
-import { Blog } from "@/types/blog";
+import { ArticleType } from "@/types/blog";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -49,15 +49,15 @@ export default async function ArticlePageId({
       </h2>
       <div className="flex flex-col justify-center p-2">
         <ul>
-          {filterContents.contents.map((post: Blog) => {
+          {filterContents.contents.map((post: ArticleType) => {
             return (
               <li key={post.id}>
                 <ArticleCard
                   id={post.id}
-                  content={post.content}
+                  content={post.mainText}
                   title={post.title}
                   category={post.category}
-                  imagePath={post.eyecatch?.url ?? ""}
+                  imagePath={post.mainImage.url ?? ""}
                   date={post.publishedAt ?? ""}
                   upDate={post.revisedAt ?? ""}
                 />

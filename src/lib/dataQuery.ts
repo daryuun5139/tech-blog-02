@@ -1,33 +1,33 @@
 import { client } from "@/lib/client";
 import type { MicroCMSQueries } from "microcms-js-sdk";
-import type { Blog, Category, PublishGroup, categoryArray } from "@/types/blog";
+import type { ArticleType, CategoryType, PublishGroup, categoryArray } from "@/types/blog";
 import { formatDate1 } from "@/lib/timeFormat";
 
 // ブログ、カテゴリ、公開日一覧を取得
 export const getList = async (queries?: MicroCMSQueries) => {
   const [listData, categoryData, publishedAtData, countByCategory] = await Promise.all([
-    client.getList<Blog>({
+    client.getList<ArticleType>({
       customRequestInit: {
         cache: "no-store",
       },
       endpoint: "blogs",
       queries,
     }),
-    client.getList<Category>({
+    client.getList<CategoryType>({
       customRequestInit: {
         cache: "no-store",
       },
       endpoint: "categories",
       queries,
     }),
-    client.getList<Blog>({
+    client.getList<ArticleType>({
       customRequestInit: {
         cache: "no-store",
       },
       endpoint: "blogs",
       queries: { fields: "publishedAt", limit: 300 },
     }),
-    client.getList<Blog>({
+    client.getList<ArticleType>({
       customRequestInit: {
         cache: "no-store",
       },
@@ -46,7 +46,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
 
 // ブログの詳細を取得
 export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
-  const detailData = await client.getListDetail<Blog>({
+  const detailData = await client.getListDetail<ArticleType>({
     customRequestInit: {
       cache: "no-store",
     },
@@ -93,7 +93,7 @@ export const getDraft = async (
   contentId: string,
   queries?: MicroCMSQueries & { draftKey: string }
 ) => {
-  const draftData = await client.get<Blog>({
+  const draftData = await client.get<ArticleType>({
     customRequestInit: { cache: "no-store" },
     endpoint: "blogs",
     contentId,

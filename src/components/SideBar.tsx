@@ -1,11 +1,11 @@
-import { Category } from "@/types/blog";
+import { CategoryType } from "@/types/blog";
 import Link from "next/link";
 import Image from "next/image";
 import { categoryCount, getList, publishAtGroup } from "@/lib/dataQuery";
 import aboutImage from "../../public/animal_seal.svg";
 
 type SideBarProps = {
-  categories: Category[];
+  categories: CategoryType[];
 };
 
 const SideBar = async () => {
@@ -44,7 +44,7 @@ const SideBar = async () => {
         <div className="mb-6 flex flex-col items-center justify-between rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] p-1 pb-5">
           <h2 className="p-2 text-lg font-bold text-black">CATEGORY</h2>
           <div className="flex w-full flex-row flex-wrap justify-center ">
-            {categories.map((item: Category) => {
+            {categories.map((item: CategoryType) => {
               return (
                 <>
                   <Link

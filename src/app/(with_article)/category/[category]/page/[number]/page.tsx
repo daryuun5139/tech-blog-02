@@ -2,7 +2,7 @@
 import ArticleCard from "@/components/ArticleCard";
 import { Pagination } from "@/components/Paginaiton";
 import { getList } from "@/lib/dataQuery";
-import { Blog, Category } from "@/types/blog";
+import { ArticleType, CategoryType } from "@/types/blog";
 
 type paramsType = {
   category: string;
@@ -16,7 +16,7 @@ export async function generateStaticParams(): Promise<paramsType[]> {
   const { categories, totalCount } = await getList();
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
-  const paths = categories.flatMap((category: Category) =>
+  const paths = categories.flatMap((category: CategoryType) =>
     range(1, Math.ceil(totalCount / PER_PAGE)).map((number) => ({
       category: category.category,
       number: number.toString(),
@@ -58,15 +58,15 @@ export default async function CategoryPage({
       </h2>
       <div className="flex flex-col justify-center p-2">
         <ul>
-          {filterContents.contents.map((post: Blog) => {
+          {filterContents.contents.map((post: ArticleType) => {
             return (
               <li key={post.id}>
                 <ArticleCard
                   id={post.id}
-                  content={post.content}
+                  content={post.mainText}
                   title={post.title}
                   category={post.category}
-                  imagePath={post.eyecatch?.url ?? ""}
+                  imagePath={post.mainImage.url ?? ""}
                   date={post.publishedAt ?? ""}
                   upDate={post.revisedAt ?? ""}
                 />

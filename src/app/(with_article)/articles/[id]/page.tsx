@@ -1,9 +1,7 @@
 //記事個別ページ（/articles/[id]/page.tsx）
 import { getList, getDetail } from "@/lib/dataQuery";
-import type { Blog } from "@/types/blog";
-import Image from "next/image";
-import Link from "next/link";
-import { formatDate2 } from "@/lib/timeFormat";
+import type { ArticleType } from "@/types/blog";
+import ArticleDetail from "@/components/ArticleDetail";
 
 type paramsType = {
   id: string;
@@ -12,7 +10,7 @@ type paramsType = {
 //generateStaticParams：ビルド時にreturnの内容に基づいて静的ルートを生成する。
 export async function generateStaticParams(): Promise<paramsType[]> {
   const { contents } = await getList();
-  const paths = contents.map((post: Blog) => {
+  const paths = contents.map((post: ArticleType) => {
     return {
       id: post.id,
     };
@@ -23,7 +21,7 @@ export async function generateStaticParams(): Promise<paramsType[]> {
 
 //generateMetadata : Metadataのtitleタグにカテゴリのタイトルを動的に入れる
 export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
-  const post: Blog = await getDetail(id);
+  const post: ArticleType = await getDetail(id);
   return {
     title: post.title,
   };
@@ -33,51 +31,18 @@ export async function generateMetadata({ params: { id } }: { params: { id: strin
 //{ params: { id } }: { params: { id: string }は前半分が分割代入引数、後半部分は型注釈。
 export default async function StaticDetailPage({ params: { id } }: { params: { id: string } }) {
   const { categories } = await getList();
-  const post: Blog = await getDetail(id);
-  const body = post.content;
+  const post: ArticleType = await getDetail(id);
 
   return (
     <>
-      <h2 className="mx-2 px-3 pt-3">
-        <Link className="menu-text-hover" href="/">
-          HOME
-        </Link>
-        <span> ▶ </span>
-        <Link className="menu-text-hover" href={`/category/${post.category.category}/page/1`}>
-          {post.category.category}
-        </Link>
-        <span> ▶ </span>
-        {post.title}
-      </h2>
-      {/* 記事内容ラッパー */}
-      <div className="relative mx-2 flex flex-col justify-center px-2">
-        <div className="absolute top-3 mb-3 flex flex-col rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] p-4">
-          <h1 className="py-3 text-center text-3xl font-bold">{post.title}</h1>
-          <div className="flex items-center justify-between py-1">
-            <Link
-              href={`/category/${post.category.category}/page/1`}
-              className="label-hover rounded-full border-[1px] border-gray-300 p-1 px-2 text-center text-sm font-semibold "
-            >
-              {post.category.category}
-            </Link>
-            <span className="text-right">{formatDate2(post.publishedAt)}</span>
-          </div>
-          <Image
-            src={post.eyecatch?.url ?? ""}
-            priority={true}
-            alt={post.title}
-            className="w-full rounded-sm object-cover"
-            width="0"
-            height="0"
-            sizes="100vw"
-          />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${post.content}`,
-            }}
-          ></div>
-        </div>
-      </div>
+      <ArticleDetail
+        id={post.id}
+        content={post.mainText}
+        category={post.category}
+        title={post.title}
+        imagePath={post.mainImage.url ?? ""}
+        publishedAt={post.publishedAt}
+      />
     </>
   );
 }

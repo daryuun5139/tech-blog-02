@@ -28,10 +28,10 @@ export default async function ArticlePage({ params: { id }, searchParams: { draf
 
       <ArticleDetail
         id={post.id}
-        content={post.content}
+        content={post.mainText}
         category={post.category}
         title={post.title}
-        imagePath={post.eyecatch?.url ?? ""}
+        imagePath={post.mainImage.url ?? ""}
         publishedAt={post.publishedAt}
       />
     </>

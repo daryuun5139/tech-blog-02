@@ -4,10 +4,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import topImage from "../../public/Season Everything With Love.svg";
 import ThemeButton from "./ThemeButton";
 import { categoryCount, getList, publishAtGroup } from "@/lib/dataQuery";
-import { Category } from "@/types/blog";
+import { CategoryType } from "@/types/blog";
 
 type SideBarProps = {
-  categories: Category[];
+  categories: CategoryType[];
 };
 
 export default async function Header() {
@@ -123,7 +123,7 @@ export default async function Header() {
           CATEGORY
         </label>
         <div className="acd-content flex w-full flex-row flex-wrap justify-center ">
-          {categories.map((item: Category) => {
+          {categories.map((item: CategoryType) => {
             return (
               <>
                 <Link

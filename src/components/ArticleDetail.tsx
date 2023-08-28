@@ -1,9 +1,17 @@
 import { formatDate2 } from "@/lib/timeFormat";
-import { ArticleDetail, Blog } from "@/types/blog";
+import { ArticleDetailPropsType } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
+import HighlightCode from "@/lib/highlightcode";
 
-const ArticleDetail = ({ id, content, category, title, imagePath, publishedAt }: ArticleDetail) => {
+const ArticleDetail = ({
+  id,
+  content,
+  category,
+  title,
+  imagePath,
+  publishedAt,
+}: ArticleDetailPropsType) => {
   return (
     <>
       <h2 className="mx-2 px-3 pt-3">
@@ -39,11 +47,25 @@ const ArticleDetail = ({ id, content, category, title, imagePath, publishedAt }:
             height="0"
             sizes="100vw"
           />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `${content}`,
-            }}
-          ></div>
+          {content.map((item, id) => {
+            return item.fieldId === "markdown" ? (
+              <div
+                key={id}
+                dangerouslySetInnerHTML={{
+                  __html: `${item.markdown}`,
+                }}
+              ></div>
+            ) : item.fieldId === "richEditor" ? (
+              HighlightCode(item.richEditor)
+            ) : item.fieldId === "richlink" ? (
+              <div
+                key={id}
+                dangerouslySetInnerHTML={{
+                  __html: `${item.richlink}`,
+                }}
+              ></div>
+            ) : null;
+          })}
         </div>
       </div>
     </>
