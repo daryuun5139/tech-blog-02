@@ -1,3 +1,4 @@
+// ドラフト用個別ページ
 import { getDraft } from "@/lib/dataQuery";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -28,11 +29,13 @@ export default async function ArticlePage({ params: { id }, searchParams: { draf
 
       <ArticleDetail
         id={post.id}
-        content={post.mainText}
-        category={post.category}
-        title={post.title}
-        imagePath={post.mainImage.url ?? ""}
         publishedAt={post.publishedAt}
+        mainTitle={post.mainTitle}
+        mainImage={post.mainImage.url ?? ""}
+        category={post.category}
+        headingText={post.headingText}
+        mainText={post.mainText}
+        footerText={post.footerText}
       />
     </>
   );

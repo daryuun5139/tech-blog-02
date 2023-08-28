@@ -6,12 +6,12 @@ import type { ArticleCardPropsType } from "@/types/blog";
 
 const ArticleCard = ({
   id,
-  content,
+  mainTitle,
   category,
-  title,
-  imagePath,
-  date,
-  upDate,
+  mainImage,
+  headingText,
+  publishedAt,
+  updatedAt,
 }: ArticleCardPropsType) => {
   return (
     <Link
@@ -22,8 +22,8 @@ const ArticleCard = ({
       <div className="flex h-full w-full">
         <div className="flex items-center justify-center rounded-sm border-[1px] border-black bg-white">
           <Image
-            src={imagePath}
-            alt={title}
+            src={mainImage}
+            alt={mainTitle}
             width="0"
             height="0"
             sizes="100vw"
@@ -33,30 +33,24 @@ const ArticleCard = ({
       </div>
       {/* テキストラッパー */}
       <div className="w-[65%} relative flex h-[90%] flex-col bg-[#FFFDF0] px-2">
-        <h2 className="mb-2 items-start  text-lg font-bold text-black">{title}</h2>
-        {content.map(
-          (item, id) =>
-            item.fieldId === "markdown" && (
-              <div key={id}>
-                <div dangerouslySetInnerHTML={{ __html: item.markdown }} />
-              </div>
-            )
-        )}
-
+        <h2 className="mb-2 items-start  text-lg font-bold text-black">{mainTitle}</h2>
+        <div key={id}>
+          <div dangerouslySetInnerHTML={{ __html: headingText.headingText }} />
+        </div>
         <div className="flex">
           <p className="text-md rounded-full border-[1px] border-black  px-2 py-[0.5px] text-center text-black">
-            {category?.category}
+            {category.category}
           </p>
         </div>
 
         <div className="absolute bottom-0 flex flex-col ">
           <p className="text-md text-black ">
             <CreateIcon className="text-black" />
-            {date.slice(0, 10)}
+            {publishedAt.slice(0, 10)}
           </p>
           <p className="text-md  text-black">
             <UpdateIcon className="text-black" />
-            {upDate.slice(0, 10)}
+            {updatedAt.slice(0, 10)}
           </p>
         </div>
       </div>

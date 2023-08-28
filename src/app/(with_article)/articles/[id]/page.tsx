@@ -23,7 +23,7 @@ export async function generateStaticParams(): Promise<paramsType[]> {
 export async function generateMetadata({ params: { id } }: { params: { id: string } }) {
   const post: ArticleType = await getDetail(id);
   return {
-    title: post.title,
+    title: post.mainTitle,
   };
 }
 
@@ -37,11 +37,13 @@ export default async function StaticDetailPage({ params: { id } }: { params: { i
     <>
       <ArticleDetail
         id={post.id}
-        content={post.mainText}
-        category={post.category}
-        title={post.title}
-        imagePath={post.mainImage.url ?? ""}
         publishedAt={post.publishedAt}
+        mainTitle={post.mainTitle}
+        mainImage={post.mainImage.url ?? ""}
+        category={post.category}
+        headingText={post.headingText}
+        mainText={post.mainText}
+        footerText={post.footerText}
       />
     </>
   );

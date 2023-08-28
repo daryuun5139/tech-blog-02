@@ -6,17 +6,38 @@ export type ArticleType = {
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
-  title: string;
+  mainTitle: string;
   mainImage: MicroCMSImage;
   category: CategoryType;
-  mainText: TextElementType[];
+  headingText: headingTextType;
+  mainText: ChapterType[];
+  footerText: footerTextType;
 };
 
-export type TextElementType = {
-  fieldId: "richEditor" | "markdown" | "richlink";
+export type headingTextType = {
+  fieldId: "headingText";
+  headingText: string;
+};
+
+export type footerTextType = {
+  fieldId: "footerText";
+  title: string;
+  footerText: string;
+};
+
+export type ChapterType = {
+  fieldId: "chapter1" | "chapter2" | "chapter3";
+  title: string;
+  content: ChapterContentType[];
+};
+
+export type ChapterContentType = {
+  fieldId: "richEditor" | "markdown" | "richlink" | "image" | "subTitle";
   richEditor: string;
   markdown: string;
   richlink: string;
+  image: MicroCMSImage;
+  subTitle: string;
 };
 
 export type CategoryType = {
@@ -31,21 +52,23 @@ export type CategoryType = {
 
 export type ArticleCardPropsType = {
   id: string;
-  content: TextElementType[];
-  title: string;
+  mainTitle: string;
   category: CategoryType;
-  imagePath: string;
-  date: string;
-  upDate: string;
+  mainImage: string;
+  headingText: headingTextType;
+  publishedAt: string;
+  updatedAt: string;
 };
 
 export type ArticleDetailPropsType = {
   id: string;
-  content: TextElementType[];
-  category: CategoryType;
-  title: string;
-  imagePath: string;
   publishedAt: string;
+  mainTitle: string;
+  mainImage: string;
+  category: CategoryType;
+  headingText: headingTextType;
+  mainText: ChapterType[];
+  footerText: footerTextType;
 };
 
 export type PublishGroup = {

@@ -19,12 +19,12 @@ export default async function Home() {
               <li key={post.id}>
                 <ArticleCard
                   id={post.id}
-                  content={post.mainText}
-                  title={post.title}
+                  mainTitle={post.mainTitle}
                   category={post.category}
-                  imagePath={post.mainImage.url ?? ""}
-                  date={post.publishedAt ?? ""}
-                  upDate={post.revisedAt ?? ""}
+                  mainImage={post.mainImage.url ?? ""}
+                  headingText={post.headingText}
+                  publishedAt={post.publishedAt ?? ""}
+                  updatedAt={post.revisedAt ?? ""}
                 />
               </li>
             );
