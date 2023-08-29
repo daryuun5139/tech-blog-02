@@ -61,6 +61,7 @@ body {
 .title-deco span {
   position: relative;
   padding: 0.5em;
+  background-color: #ffffff;
 }
 
 /* タイトル飾り線（article, category, archive）*/

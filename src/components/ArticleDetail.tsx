@@ -16,31 +16,31 @@ const ArticleDetail = ({
 }: ArticleDetailPropsType) => {
   return (
     <>
-      <h2 className="mx-2 px-3 pt-3">
+      <h2 className="mx-2 px-3 pt-3 text-black">
         <Link className="menu-text-hover" href="/">
           HOME
         </Link>
-        <span> ▶ </span>
+        <span className="text-black"> ▶ </span>
         <Link className="menu-text-hover" href={`/category/${category.category}/page/1`}>
           {category.category}
         </Link>
-        <span> ▶ </span>
+        <span className="text-black"> ▶ </span>
         {mainTitle}
       </h2>
       {/* 記事内容ラッパー */}
       <div className="relative mx-2 flex flex-col justify-center px-2">
-        <div className="absolute top-3 mb-3 flex flex-col rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] p-4">
+        <div className="absolute top-0 mb-3 flex flex-col rounded-sm border-[#773b01] p-4">
           {/* メインタイトル */}
-          <h3 className="py-3 text-center text-3xl font-bold">{mainTitle}</h3>
+          <h3 className="pb-3 text-center text-3xl font-bold text-black">{mainTitle}</h3>
           {/* カテゴリ＆作成日 */}
           <div className="flex items-center justify-between py-1">
             <Link
               href={`/category/${category.category}/page/1`}
-              className="label-hover rounded-full border-[1px] border-gray-300 p-1 px-2 text-center text-sm font-semibold "
+              className="label-hover rounded-full border-[1px] border-gray-300 p-1 px-2 text-center text-sm font-semibold text-black"
             >
               {category.category}
             </Link>
-            <span className="text-right">{formatDate2(publishedAt)}</span>
+            <span className="text-right text-black">{formatDate2(publishedAt)}</span>
           </div>
           {/* メインイメージ */}
           <Image

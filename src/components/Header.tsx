@@ -31,14 +31,14 @@ export default function Header() {
             />
           </a>
         </Link>
-        <div className="mr-[60px] mt-2 flex items-center gap-1 sm:mr-0">
+        <div className="mt-2 flex items-center gap-1 sm:mr-0">
           {/* 日本語、英語切り替え& */}
           <Ja_EnButton />
           {/* ダークモードボタン */}
           <ThemeButton />
+          {/* ハンバーガーメニュー */}
+          <HamburgerMenu />
         </div>
-        {/* ハンバーガーメニュー */}
-        <HamburgerMenu />
       </div>
       {/* メイン画像 */}
       <div>
