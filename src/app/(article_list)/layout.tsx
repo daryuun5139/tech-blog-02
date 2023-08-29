@@ -1,6 +1,6 @@
 import SideBar from "@/components/SideBar";
 
-export default function WithArticleLayout({ children }: { children: React.ReactNode }) {
+export default function ArticleListLayout({ children }: { children: React.ReactNode }) {
   return (
     <section>
       <main className="flex justify-between">

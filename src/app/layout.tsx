@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="`${inter.className}` dark:bg-darkgrey">
         <Providers>
-          <div className="mx-auto flex  flex-col px-10 sm:container lg:w-[1000px] lg:px-0">
+          <div className="container mx-auto flex flex-col px-10 lg:w-[1000px] lg:px-0">
             <Header />
             <div className="min-h-[1200px]">{children}</div>
             <Footer />

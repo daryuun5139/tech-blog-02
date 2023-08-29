@@ -9,7 +9,7 @@ type paramsType = {
   number: string;
 };
 
-const PER_PAGE = 5;
+const PER_PAGE = 8;
 
 //generateStaticParams：ビルド時にreturnの内容に基づいて静的ルートを生成する。
 export async function generateStaticParams(): Promise<paramsType[]> {
@@ -44,8 +44,8 @@ export default async function CategoryPage({
   const currentNumber = Number(number);
   const targetCategory = categories.find((n) => n.category === category);
   const filterContents = await getList({
-    offset: (currentNumber - 1) * 5,
-    limit: 5,
+    offset: (currentNumber - 1) * 8,
+    limit: 8,
     filters: `category[equals]${targetCategory?.id}`,
   });
   const contentsCount = filterContents.totalCount;
@@ -53,27 +53,23 @@ export default async function CategoryPage({
   return (
     <>
       {/* 記事一覧ラッパー */}
-      <h2 className="text-center text-xl font-bold">
+      <h2 className="pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
         カテゴリー"{category}"の記事 ({currentNumber} / {Math.ceil(contentsCount / PER_PAGE)})
       </h2>
-      <div className="flex flex-col justify-center p-2">
-        <ul>
-          {filterContents.contents.map((post: ArticleType) => {
-            return (
-              <li key={post.id}>
-                <ArticleCard
-                  id={post.id}
-                  mainTitle={post.mainTitle}
-                  category={post.category}
-                  mainImage={post.mainImage.url ?? ""}
-                  headingText={post.headingText}
-                  publishedAt={post.publishedAt ?? ""}
-                  updatedAt={post.revisedAt ?? ""}
-                />
-              </li>
-            );
-          })}
-        </ul>
+      <div className="flex flex-wrap justify-center sm:justify-between">
+        {filterContents.contents.map((post: ArticleType) => {
+          return (
+            <ArticleCard
+              id={post.id}
+              mainTitle={post.mainTitle}
+              category={post.category}
+              mainImage={post.mainImage.url ?? ""}
+              headingText={post.headingText}
+              publishedAt={post.publishedAt ?? ""}
+              updatedAt={post.revisedAt ?? ""}
+            />
+          );
+        })}
       </div>
       <Pagination
         totalCount={contentsCount}
