@@ -12,11 +12,11 @@ export default function Works() {
           <span>works</span>
         </h1>
         {/* フィールド１つ目 */}
-        <div className="my-4 flex w-full justify-between rounded-md bg-[#FFFDF0] p-5 px-7">
-          <div className="flex h-80 w-[45%] items-center justify-center rounded-md border-[1px] border-black bg-white">
+        <div className="my-4 flex w-full justify-between rounded-md p-5 px-7">
+          <div className="flex h-80 w-[45%] items-center justify-center rounded-md border-[1px] border-black">
             <p className="card-text text-lg">coming soon</p>
           </div>
-          <div className="my-auto ml-10 items-center bg-[#FFFDF0] px-2 text-black">
+          <div className="my-auto ml-10 items-center px-2 text-black">
             <h2 className="card-text text-lg">サイト名：東京R不動産</h2>
             <h3 className="card-text text-lg ">概要：</h3>
             <p className="card-text text-base">
@@ -30,11 +30,11 @@ export default function Works() {
           </div>
         </div>
         {/* フィールド２つ目 */}
-        <div className="my-4 flex w-full justify-between rounded-md bg-[#FFFDF0] p-5 px-7">
-          <div className="flex h-80 w-[45%] items-center justify-center  rounded-md border-[1px] border-black bg-white">
+        <div className="my-4 flex w-full justify-between rounded-md p-5 px-7">
+          <div className="flex h-80 w-[45%] items-center justify-center  rounded-md border-[1px] border-black">
             <p className="card-text text-lg">coming soon</p>
           </div>
-          <div className="my-auto ml-10 items-center bg-[#FFFDF0] px-2 text-black">
+          <div className="my-auto ml-10 items-center px-2 text-black">
             <h2 className="card-text text-lg">サイト名：東京R不動産</h2>
             <h3 className="card-text text-lg ">概要：</h3>
             <p className="card-text text-base">
@@ -48,11 +48,11 @@ export default function Works() {
           </div>
         </div>
         {/* フィールド3つ目 */}
-        <div className="my-4 flex w-full justify-between rounded-md bg-[#FFFDF0] p-5 px-7">
-          <div className="flex h-80 w-[45%] items-center justify-center  rounded-md border-[1px] border-black bg-white">
+        <div className="my-4 flex w-full justify-between rounded-md p-5 px-7">
+          <div className="flex h-80 w-[45%] items-center justify-center  rounded-md border-[1px] border-black">
             <p className="card-text text-lg">coming soon</p>
           </div>
-          <div className="my-auto ml-10 items-center bg-[#FFFDF0] px-2 text-black">
+          <div className="my-auto ml-10 items-center px-2 text-black">
             <h2 className="card-text text-lg">サイト名：東京R不動産</h2>
             <h3 className="card-text text-lg ">概要：</h3>
             <p className="card-text text-base">

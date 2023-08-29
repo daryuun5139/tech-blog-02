@@ -1,3 +1,4 @@
+// ダークモード切り替えボタン
 "use client";
 
 import { useTheme } from "next-themes";
@@ -20,7 +21,6 @@ export default function ThemeButton() {
       <button
         aria-label="ThemeButton"
         type="button"
-        // className=""
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
         {mounted && (

@@ -11,25 +11,25 @@ export default async function Home() {
   return (
     <>
       {/* 新着記事一覧ラッパー */}
-      <h2 className="title-deco-line text-center text-xl font-bold">新着記事一覧</h2>
-      <div className="flex flex-col justify-center p-2">
-        <ul>
-          {contents.slice(0, 5).map((post: ArticleType) => {
-            return (
-              <li key={post.id}>
-                <ArticleCard
-                  id={post.id}
-                  mainTitle={post.mainTitle}
-                  category={post.category}
-                  mainImage={post.mainImage.url ?? ""}
-                  headingText={post.headingText}
-                  publishedAt={post.publishedAt ?? ""}
-                  updatedAt={post.revisedAt ?? ""}
-                />
-              </li>
-            );
-          })}
-        </ul>
+      <h2 className="title-deco-line pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
+        LATEST ARTICLES
+      </h2>
+      <div className="flex flex-wrap justify-center sm:justify-between">
+        {contents.slice(0, 8).map((post: ArticleType) => {
+          return (
+            <>
+              <ArticleCard
+                id={post.id}
+                mainTitle={post.mainTitle}
+                category={post.category}
+                mainImage={post.mainImage.url ?? ""}
+                headingText={post.headingText}
+                publishedAt={post.publishedAt ?? ""}
+                updatedAt={post.revisedAt ?? ""}
+              />
+            </>
+          );
+        })}
       </div>
       <Pagination totalCount={totalCount} pageName1={pageName1} />
     </>

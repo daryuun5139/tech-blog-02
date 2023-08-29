@@ -1,0 +1,93 @@
+/* メニューテキストホバー（ヘッダー、フッター） */
+.menu-text-hover:hover {
+  text-decoration: underline;
+  color: #000;
+  transition: all 0.8s;
+  cursor: pointer;
+}
+
+/* アコーディオンアニメーション(ハンバーガーメニュー） */
+.hamburger-acd-check {
+  display: none;
+}
+
+.hamburger-acd-label {
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburger-acd-label:after {
+  content: url(../../public/other-icon/bars-solid.svg);
+  position: absolute;
+  right: 5px;
+  width: 28px;
+}
+
+.hamburger-acd-content {
+  height: 0;
+  opacity: 0;
+  transition: 0.3s;
+  visibility: hidden;
+}
+
+.hamburger-acd-check:checked + .hamburger-acd-label:after {
+  content: url(../../public/other-icon/xmark-solid.svg);
+  position: absolute;
+  right: 5px;
+}
+
+.hamburger-acd-check:checked + .hamburger-acd-label + .hamburger-acd-content {
+  height: 160px;
+  opacity: 1;
+  padding: 10px;
+  border-radius: 6px;
+  visibility: visible;
+}
+
+/* アコーディオンアニメーション(カテゴリ、アーカイブ） */
+.acd-check {
+  display: none;
+}
+
+.acd-label {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.acd-label:after {
+  content: url(../../public/other-icon/plus-solid.svg);
+  position: absolute;
+  right: 10px;
+  top: -3px;
+  width: 30px;
+}
+
+.acd-content {
+  height: 0;
+  opacity: 0;
+  transition: 0.3s;
+  visibility: hidden;
+}
+
+.acd-check:checked + .acd-label:after {
+  content: url(../../public/other-icon/minus-solid.svg);
+}
+
+.acd-check:checked + .acd-label + .acd-content {
+  height: 170px;
+  opacity: 1;
+  padding: 10px;
+  visibility: visible;
+}
+
+/* ラベルホバー（カテゴリ、アーカイブ） */
+.label-hover {
+  transition: all 0.6s ease 0s;
+}
+
+.label-hover:hover {
+  /* transform: translateY(-2px); */
+  /* background-color: rgb(202, 204, 205, 0.5); */
+  border-color: #000;
+}

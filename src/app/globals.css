@@ -15,82 +15,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffefa1;
-}
-
-.navMenu {
-  @apply text-lg font-semibold;
+  background-color: #ffffff;
 }
 
 .card-text {
   @apply py-2 text-black;
-}
-
-/* aboutページ枠線 */
-.frame {
-  position: relative;
-  width: 70%;
-  max-width: 800px;
-  padding: 2em 2em;
-}
-
-.frame::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: "";
-  background:
-    radial-gradient(
-        circle at top left,
-        transparent 20px,
-        #773b01 20px,
-        #773b01 22px,
-        transparent 22px
-      )
-      left top / 22px 22px no-repeat,
-    radial-gradient(
-        circle at top right,
-        transparent 20px,
-        #773b01 20px,
-        #773b01 22px,
-        transparent 22px
-      )
-      right top / 22px 22px no-repeat,
-    radial-gradient(
-        circle at bottom left,
-        transparent 20px,
-        #773b01 20px,
-        #773b01 22px,
-        transparent 22px
-      )
-      left bottom / 22px 22px no-repeat,
-    radial-gradient(
-        circle at bottom right,
-        transparent 20px,
-        #773b01 20px,
-        #773b01 22px,
-        transparent 22px
-      )
-      right bottom / 22px 22px no-repeat,
-    linear-gradient(90deg, transparent 20px, #773b01 22px) left top / 51% 2px no-repeat,
-    linear-gradient(-90deg, transparent 20px, #773b01 22px) right top / 51% 2px no-repeat,
-    linear-gradient(90deg, transparent 20px, #773b01 22px) left bottom / 51% 2px no-repeat,
-    linear-gradient(-90deg, transparent 20px, #773b01 22px) right bottom / 51% 2px no-repeat,
-    linear-gradient(180deg, transparent 20px, #773b01 22px) left top / 2px 51% no-repeat,
-    linear-gradient(0deg, transparent 20px, #773b01 22px) left bottom / 2px 51% no-repeat,
-    linear-gradient(180deg, transparent 20px, #773b01 22px) right top / 2px 51% no-repeat,
-    linear-gradient(0deg, transparent 20px, #773b01 22px) right bottom / 2px 51% no-repeat;
-}
-.frame::after {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
-  content: "";
-  box-shadow: 0 0 0 1px #773b01;
 }
 
 /* タイトル飾り線（profile,work） */
@@ -132,7 +61,6 @@ body {
 .title-deco span {
   position: relative;
   padding: 0.5em;
-  background-color: #ffefa1;
 }
 
 /* タイトル飾り線（article, category, archive）*/
@@ -150,190 +78,26 @@ body {
 }
 
 .title-deco-line:before {
-  margin-right: 0.5em;
+  margin-right: 1em;
 }
 
 .title-deco-line:after {
-  margin-left: 0.5em;
-}
-
-/* スキルカード */
-.skill-card {
-  @apply my-5 flex w-[26%] cursor-pointer items-center justify-center 
-  rounded-md border-[1px] border-[#773b01] bg-[#FFFDF0] 
-  outline-2 transition-all duration-100 before:pt-[100%] 
-  hover:outline hover:outline-[#773b01];
+  margin-left: 1em;
 }
 
 /* 記事カードホバー */
 .card-hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.6s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .card-hover:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  transform: translateY(-2px);
+  opacity: 0.6;
 }
 
-/* ラベルホバー（カテゴリ、アーカイブ） */
-.label-hover {
-  transition: all 0.6s ease 0s;
-}
-
-.label-hover:hover {
-  /* transform: translateY(-2px); */
-  /* background-color: rgb(202, 204, 205, 0.5); */
-  border-color: #000;
-}
-
-/* メニューテキストホバー（ヘッダー、フッター） */
-.menu-text-hover:hover {
-  text-decoration: underline;
-  color: #000;
-  transition: all 0.8s;
-  cursor: pointer;
-}
-
-/* アコーディオンアニメーション(カテゴリ、アーカイブ） */
-.acd-check {
-  display: none;
-}
-
-.acd-label {
-  position: relative;
-  width: 100%;
-  cursor: pointer;
-}
-
-.acd-label:after {
-  content: url(../../public/other-icon/plus-solid.svg);
-  position: absolute;
-  right: 10px;
-  top: -3px;
-  width: 30px;
-}
-
-.acd-content {
-  height: 0;
-  opacity: 0;
-  transition: 0.3s;
-  visibility: hidden;
-}
-
-.acd-check:checked + .acd-label:after {
-  content: url(../../public/other-icon/minus-solid.svg);
-}
-
-.acd-check:checked + .acd-label + .acd-content {
-  height: 170px;
-  opacity: 1;
-  padding: 10px;
-  visibility: visible;
-}
-
-/* アコーディオンアニメーション(ハンバーガーメニュー） */
-.hamburger-acd-check {
-  display: none;
-}
-
-.hamburger-acd-label {
-  position: relative;
-  cursor: pointer;
-}
-
-.hamburger-acd-label:after {
-  content: url(../../public/other-icon/bars-solid.svg);
-  position: absolute;
-  right: 5px;
-  /* top: 36px; */
-  width: 28px;
-}
-
-.hamburger-acd-content {
-  height: 0;
-  opacity: 0;
-  transition: 0.3s;
-  visibility: hidden;
-}
-
-.hamburger-acd-check:checked + .hamburger-acd-label:after {
-  content: url(../../public/other-icon/xmark-solid.svg);
-  position: absolute;
-  right: 5px;
-  /* top: 34px; */
-}
-
-.hamburger-acd-check:checked + .hamburger-acd-label + .hamburger-acd-content {
-  height: 160px;
-  opacity: 1;
-  padding: 10px;
-  border-radius: 6px;
-  visibility: visible;
-}
-
-/* ローディング */
-.cs-loader-inner {
-  transform: translateY(-50%);
-  top: 50%;
-  position: absolute;
-  width: calc(100% - 200px);
-  color: #fff;
-  padding: 0 100px;
-  text-align: center;
-}
-
-.cs-loader-inner label {
-  font-size: 20px;
-  opacity: 0;
-  display: inline-block;
-}
-
-@keyframes lol {
-  0% {
-    opacity: 0;
-    transform: translateX(-300px);
-  }
-  33% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  66% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(300px);
-  }
-}
-
-.cs-loader-inner label:nth-child(6) {
-  -webkit-animation: lol 3s infinite ease-in-out;
-  animation: lol 3s infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(5) {
-  -webkit-animation: lol 3s 100ms infinite ease-in-out;
-  animation: lol 3s 100ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(4) {
-  -webkit-animation: lol 3s 200ms infinite ease-in-out;
-  animation: lol 3s 200ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(3) {
-  -webkit-animation: lol 3s 300ms infinite ease-in-out;
-  animation: lol 3s 300ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(2) {
-  -webkit-animation: lol 3s 400ms infinite ease-in-out;
-  animation: lol 3s 400ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(1) {
-  -webkit-animation: lol 3s 500ms infinite ease-in-out;
-  animation: lol 3s 500ms infinite ease-in-out;
+/* ArticleCardのHeadingTextの文字数制限 */
+.txt-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
