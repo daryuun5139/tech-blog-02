@@ -43,13 +43,13 @@ const SideBar = async () => {
         {/* カテゴリ一覧ボックス */}
         <div className="mb-6 flex flex-col items-center justify-between rounded-sm border-[1px] border-[#773b01] pb-5">
           <h2 className="p-2 text-lg font-bold text-black">CATEGORY</h2>
-          <div className="flex w-full flex-row flex-wrap justify-center ">
+          <div className="flex w-full flex-col items-center justify-center ">
             {categories.map((item: CategoryType) => {
               return (
                 <>
                   <Link
                     href={`/category/${item.category}/page/1`}
-                    className="label-hover mx-1 my-2 flex w-[47%] rounded-full border-[1px] border-gray-300 p-2 pl-1 text-center text-sm "
+                    className="label-hover mx-1 my-2 flex w-fit rounded-full border-[1px] border-gray-300 p-2 pl-1 text-center text-sm "
                   >
                     <Image
                       className="mr-1"

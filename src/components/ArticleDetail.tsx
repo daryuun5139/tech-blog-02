@@ -1,10 +1,12 @@
+// "use client";
+
 import { formatDate2 } from "@/lib/timeFormat";
 import { ArticleDetailPropsType } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
 import HighlightCode from "@/lib/highlightcode";
-import ShortenText from "@/lib/shortenText";
-import parse from "html-react-parser";
+import { BlackText } from "@/lib/shortenText";
+import ReturnPageTop from "./OtherElements/ReturnPageTop";
 
 const ArticleDetail = ({
   id,
@@ -16,6 +18,7 @@ const ArticleDetail = ({
   mainText,
   footerText,
 }: ArticleDetailPropsType) => {
+  // ReturnPageTop();
   return (
     <div>
       <h2 className="pt-3 text-black">
@@ -55,7 +58,9 @@ const ArticleDetail = ({
             sizes="100vw"
           />
           {/* 冒頭文 */}
-          <div className="my-5 text-lg leading-10 text-black">{parse(headingText.headingText)}</div>
+          <div className="my-5 text-lg leading-10 text-black">
+            {BlackText(headingText.headingText)}
+          </div>
           {/* 本文 */}
           <div>
             {mainText.map((chapter, id) => {
@@ -94,6 +99,7 @@ const ArticleDetail = ({
                     ) : // 画像の場合
                     item.fieldId === "image" ? (
                       <Image
+                        key={id}
                         src={item.image.url}
                         alt={id.toString()}
                         className="my-5 rounded-sm object-cover"
@@ -111,7 +117,7 @@ const ArticleDetail = ({
             <h4 className="my-5 w-fit border-b-[3px] border-black pr-10 text-[28px] tracking-wide text-black">
               {footerText.title}
             </h4>
-            <p className="my-5 text-lg leading-10 text-black">{parse(footerText.footerText)}</p>
+            <div className="my-5 text-lg leading-10">{BlackText(footerText.footerText)}</div>
           </div>
           <h2 className="pt-3 text-black">
             <Link className="menu-text-hover" href="/">
@@ -124,6 +130,7 @@ const ArticleDetail = ({
             <span className="text-black"> ▶ </span>
             {mainTitle}
           </h2>
+          <ReturnPageTop />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import UpdateIcon from "@mui/icons-material/Update";
 import type { ArticleCardPropsType } from "@/types/blog";
 import parse from "html-react-parser";
-import ShortenText from "@/lib/shortenText";
+import { ShortenText } from "@/lib/shortenText";
 
 const ArticleCard = ({
   id,

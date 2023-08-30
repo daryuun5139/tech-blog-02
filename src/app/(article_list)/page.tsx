@@ -15,21 +15,25 @@ export default async function Home() {
         LATEST ARTICLES
       </h2>
       <div className="flex flex-wrap justify-center sm:justify-between">
-        {contents.slice(0, 8).map((post: ArticleType) => {
-          return (
-            <>
-              <ArticleCard
-                id={post.id}
-                mainTitle={post.mainTitle}
-                category={post.category}
-                mainImage={post.mainImage.url ?? ""}
-                headingText={post.headingText}
-                publishedAt={post.publishedAt ?? ""}
-                updatedAt={post.revisedAt ?? ""}
-              />
-            </>
-          );
-        })}
+        {!contents || contents.length === 0 ? (
+          <p className="mx-auto flex py-11 text-center lg:text-lg">記事がありません。</p>
+        ) : (
+          <>
+            {contents.slice(0, 8).map((post: ArticleType) => {
+              return (
+                <ArticleCard
+                  id={post.id}
+                  mainTitle={post.mainTitle}
+                  category={post.category}
+                  mainImage={post.mainImage.url ?? ""}
+                  headingText={post.headingText}
+                  publishedAt={post.publishedAt ?? ""}
+                  updatedAt={post.revisedAt ?? ""}
+                />
+              );
+            })}
+          </>
+        )}
       </div>
       <Pagination totalCount={totalCount} pageName1={pageName1} />
     </>

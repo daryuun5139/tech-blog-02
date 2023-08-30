@@ -7,6 +7,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
   /* -webkit-font-smoothing: antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
 }
@@ -101,4 +102,41 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+/* ページTOPに戻る */
+#page_top {
+  width: 100px;
+  height: 80px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background: rgba(209, 213, 219, 0.6);
+  opacity: 1;
+  z-index: 10;
+}
+
+#page_top::before {
+  content: url(../../public/other-icon/chevron-up-solid.svg);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -25px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top::after {
+  content: "PAGE TOP";
+  font-size: 14px;
+  color: #000;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
 }

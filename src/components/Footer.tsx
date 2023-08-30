@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <div className="mx-auto mb-12 mt-24 flex h-32 w-full flex-col items-center justify-center border-t-[1px] border-[#773b01] pt-16">
-      <div className="mb-2 flex gap-5">
+      <div className="mb-2 flex gap-5 text-sm sm:text-base ">
         <Link href="/profile" className="menu-text-hover">
           ABOUT
         </Link>

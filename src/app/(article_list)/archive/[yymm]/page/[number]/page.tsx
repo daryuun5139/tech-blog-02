@@ -60,19 +60,25 @@ export default async function ArchivePage({
         {Math.ceil(contentsCount / PER_PAGE)})
       </h2>
       <div className="flex flex-wrap justify-center sm:justify-between">
-        {filterContents.contents.map((post: ArticleType) => {
-          return (
-            <ArticleCard
-              id={post.id}
-              mainTitle={post.mainTitle}
-              category={post.category}
-              mainImage={post.mainImage.url ?? ""}
-              headingText={post.headingText}
-              publishedAt={post.publishedAt ?? ""}
-              updatedAt={post.revisedAt ?? ""}
-            />
-          );
-        })}
+        {contentsCount === 0 ? (
+          <p className="mx-auto flex py-11 text-center lg:text-lg">該当する記事がありません。</p>
+        ) : (
+          <>
+            {filterContents.contents.map((post: ArticleType) => {
+              return (
+                <ArticleCard
+                  id={post.id}
+                  mainTitle={post.mainTitle}
+                  category={post.category}
+                  mainImage={post.mainImage.url ?? ""}
+                  headingText={post.headingText}
+                  publishedAt={post.publishedAt ?? ""}
+                  updatedAt={post.revisedAt ?? ""}
+                />
+              );
+            })}
+          </>
+        )}
       </div>
       <Pagination
         totalCount={contentsCount}
