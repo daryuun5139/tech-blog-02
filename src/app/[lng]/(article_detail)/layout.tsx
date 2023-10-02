@@ -9,8 +9,8 @@ export default function ArticleDetailLayout({
 }) {
   return (
     <section>
-      <main className="flex justify-between ">
-        <div className="flex w-full flex-col justify-center py-5 lg:w-[800px]">{children}</div>
+      <main className="flex justify-evenly ">
+        <div className="flex w-full flex-col justify-center py-5 lg:w-[850px]">{children}</div>
         <SideBar lng={lng} />
       </main>
     </section>

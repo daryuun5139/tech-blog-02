@@ -38,7 +38,7 @@ export default function RootLayout({
       </head>
       <body className="`${inter.className}` dark:bg-darkgrey">
         <Providers>
-          <div className="container mx-auto flex flex-col px-10 lg:w-[1000px] lg:px-0">
+          <div className="container mx-auto flex flex-col px-10 lg:w-[1200px] lg:px-0">
             <Header lng={lng} />
             <div className="min-h-[1200px]">{children}</div>
             <Footer lng={lng} />

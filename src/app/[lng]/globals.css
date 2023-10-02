@@ -63,6 +63,7 @@ body {
   position: relative;
   padding: 0.5em;
   background-color: #ffffff;
+  dark:;
 }
 
 /* タイトル飾り線（article, category, archive）*/

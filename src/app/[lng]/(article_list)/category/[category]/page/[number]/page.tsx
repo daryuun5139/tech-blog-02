@@ -64,7 +64,9 @@ export default async function CategoryPage({
     if (lng === "ja") {
       if (contentsCount === 0) {
         return (
-          <p className="mx-auto flex py-11 text-center lg:text-lg">該当する記事がありません。</p>
+          <p className="mx-auto flex py-11 text-center dark:text-[#773B01] lg:text-lg">
+            該当する記事がありません。
+          </p>
         );
       } else {
         return (
@@ -87,7 +89,11 @@ export default async function CategoryPage({
       }
     } else if (lng === "en") {
       if (contentsCount === 0) {
-        return <p className="mx-auto flex py-11 text-center lg:text-lg">No Articles</p>;
+        return (
+          <p className="mx-auto flex py-11 text-center dark:text-[#773B01] lg:text-lg">
+            No Articles
+          </p>
+        );
       } else {
         return (
           <>
@@ -114,11 +120,11 @@ export default async function CategoryPage({
     <>
       {/* 記事一覧ラッパー */}
       {lng === "ja" ? (
-        <h2 className="pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
+        <h2 className="pb-3 text-center font-medium text-black dark:text-[#773B01] sm:text-lg md:pb-6 md:text-xl">
           カテゴリー"{category}"の記事 ({currentNumber} / {Math.ceil(contentsCount / PER_PAGE)})
         </h2>
       ) : (
-        <h2 className="pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
+        <h2 className="pb-3 text-center font-medium text-black dark:text-[#773B01] sm:text-lg md:pb-6 md:text-xl">
           Articles of "{category}" ({currentNumber} / {Math.ceil(contentsCount / PER_PAGE)})
         </h2>
       )}

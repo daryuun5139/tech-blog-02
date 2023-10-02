@@ -3,6 +3,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Sun } from "lucide-react";
+import { Moon } from "lucide-react";
 
 export default function ThemeButton() {
   const { theme, setTheme } = useTheme();
@@ -21,19 +23,7 @@ export default function ThemeButton() {
         type="button"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        {mounted && (
-          <>
-            {theme === "dark" ? (
-              // <DarkModeIcon fontSize="medium" />
-              // <DarkModeIcon />
-              <p>Dark</p>
-            ) : (
-              // <LightModeIcon fontSize="medium" />
-              // <LightModeIcon />
-              <p>sun</p>
-            )}
-          </>
-        )}
+        {mounted && <>{theme === "dark" ? <Moon /> : <Sun />}</>}
       </button>
     </>
   );

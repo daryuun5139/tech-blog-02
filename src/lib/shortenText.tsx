@@ -13,7 +13,10 @@ const shortenOptions: HTMLReactParserOptions = {
     const typedDomNode = domNode as Element;
     if (typedDomNode.attribs && typedDomNode.name === "p") {
       return (
-        <p {...attributesToProps(typedDomNode.attribs)} className="txt-limit text-black">
+        <p
+          {...attributesToProps(typedDomNode.attribs)}
+          className="txt-limit leading-8 text-black dark:text-[#773B01]"
+        >
           {typedDomNode.children && domToReact(typedDomNode.children, shortenOptions)}
         </p>
       );
@@ -28,7 +31,7 @@ const convertBlackOptions: HTMLReactParserOptions = {
     const typedDomNode = domNode as Element;
     if (typedDomNode.attribs && typedDomNode.name === "p") {
       return (
-        <p {...attributesToProps(typedDomNode.attribs)} className="text-black">
+        <p {...attributesToProps(typedDomNode.attribs)} className="text-black dark:text-[#773B01] ">
           {typedDomNode.children && domToReact(typedDomNode.children, convertBlackOptions)}
         </p>
       );

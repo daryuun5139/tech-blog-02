@@ -65,7 +65,11 @@ export default async function ArchivePage({
   function Card() {
     if (lng === "ja") {
       if (!filterContents.contents || filterContents.contents.length === 0) {
-        return <p className="mx-auto flex py-11 text-center lg:text-lg">記事がありません。</p>;
+        return (
+          <p className="mx-auto flex py-11 text-center dark:text-[#773B01] lg:text-lg">
+            記事がありません。
+          </p>
+        );
       } else {
         return (
           <>
@@ -87,7 +91,11 @@ export default async function ArchivePage({
       }
     } else if (lng === "en") {
       if (!filterContents.contents_en || filterContents.contents_en.length === 0) {
-        return <p className="mx-auto flex py-11 text-center lg:text-lg">No Article</p>;
+        return (
+          <p className="mx-auto flex py-11 text-center dark:text-[#773B01] lg:text-lg">
+            No Article
+          </p>
+        );
       } else {
         return (
           <>
@@ -114,12 +122,12 @@ export default async function ArchivePage({
     <>
       {/* 新着記事一覧ラッパー */}
       {lng === "ja" ? (
-        <h2 className="pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
+        <h2 className="pb-3 text-center font-medium text-black dark:text-[#773B01] sm:text-lg md:pb-6 md:text-xl">
           {yymm.slice(0, 4)}年{yymm.slice(4)}月の記事一覧 ({currentNumber} /{" "}
           {Math.ceil(contentsCount / PER_PAGE)})
         </h2>
       ) : (
-        <h2 className="pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
+        <h2 className="pb-3 text-center font-medium text-black dark:text-[#773B01] sm:text-lg md:pb-6 md:text-xl">
           Articles of {yymm.slice(0, 4)}/{yymm.slice(4)} ({currentNumber} /{" "}
           {Math.ceil(contentsCount / PER_PAGE)})
         </h2>

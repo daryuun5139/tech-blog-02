@@ -20,17 +20,17 @@ const SideBar = async ({ lng }: Props) => {
       <div className="absolute top-14 my-3 ml-4 flex-col items-start">
         {/* 当ブロクについて */}
         <div className="mb-6 flex flex-col items-center justify-between rounded-sm border-[1px] border-[#773b01] p-3 ">
-          <h2 className="p-2 text-lg font-bold text-black">ABOUT</h2>
-          {/* <Image
+          <h2 className="p-2 text-lg font-bold text-black dark:text-[#773B01]">ABOUT</h2>
+          <Image
             src={aboutImage}
             width="0"
             height="0"
             alt="aboutImage"
             className="h-auto w-full rounded-md"
             loading="eager"
-          /> */}
+          />
           <div className="flex w-full flex-row flex-wrap justify-start p-4 text-black">
-            <p className="mb-2 text-black">{t("text")}</p>
+            <p className="mb-2 text-black dark:text-[#773B01]">{t("text")}</p>
           </div>
         </div>
         {/* カテゴリ一覧ボックス */}

@@ -36,7 +36,7 @@ export default async function Header({ lng }: Props) {
             />
           </a>
         </Link>
-        <div className="mt-2 flex items-center gap-1 sm:mr-0">
+        <div className="mt-2 flex items-center gap-2 sm:mr-0">
           {/* 日本語、英語切り替え& */}
           <Ja_EnButton idList_ja={idList_ja} idList_en={idList_en} />
           {/* ダークモードボタン */}

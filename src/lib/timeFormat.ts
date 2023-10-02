@@ -13,6 +13,6 @@ export const formatDate1 = (date: dayjs.Dayjs | string) => {
 
 // UTC -> "2022/04/01" のフォーマットに変換
 export const formatDate2 = (date: dayjs.Dayjs | string) => {
-  const formattedDate = dayjs.utc(date).tz("Asia/Tokyo").format("YYYY/MM/DD");
+  const formattedDate = dayjs.utc(date).tz("Asia/Tokyo").format("YYYY/MM/DD HH:mm:ss");
   return formattedDate;
 };

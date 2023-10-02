@@ -33,7 +33,7 @@ export default async function Profile({ params: { lng } }: ParamType) {
             <p>{t("text")}</p>
           </div>
           {/* スキルエリア */}
-          <SkillArea />
+          {/* <SkillArea /> */}
         </div>
       </div>
     </>

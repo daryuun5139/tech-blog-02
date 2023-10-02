@@ -63,7 +63,7 @@ export default async function Home({ params: { lng } }: ParamType) {
   return (
     <>
       {/* 新着記事一覧ラッパー */}
-      <h2 className="title-deco-line pb-3 text-center font-medium text-black sm:text-lg md:pb-6 md:text-xl">
+      <h2 className="title-deco-line pb-3 text-center font-medium text-black dark:text-[#773B01] sm:text-lg md:pb-6 md:text-xl">
         LATEST ARTICLES
       </h2>
       <div className="flex flex-wrap justify-center sm:justify-between">
