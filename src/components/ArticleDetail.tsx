@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { formatDate2 } from "@/lib/timeFormat";
 import { ArticleDetailPropsType } from "@/types/blog";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import HighlightCode from "@/lib/highlightcode";
 import { BlackText } from "@/lib/shortenText";
 import ReturnPageTop from "./OtherElements/ReturnPageTop";
+import { useParams } from "next/navigation";
 
 const ArticleDetail = ({
   id,
@@ -18,15 +19,16 @@ const ArticleDetail = ({
   mainText,
   footerText,
 }: ArticleDetailPropsType) => {
-  // ReturnPageTop();
+  const { lng } = useParams();
+
   return (
     <div>
       <h2 className="pt-3 text-black">
-        <Link className="menu-text-hover" href="/">
+        <Link className="menu-text-hover" href={`/${lng}/`}>
           HOME
         </Link>
         <span className="text-black"> ▶ </span>
-        <Link className="menu-text-hover" href={`/category/${category.category}/page/1`}>
+        <Link className="menu-text-hover" href={`/${lng}/category/${category.category}/page/1`}>
           {category.category}
         </Link>
         <span className="text-black"> ▶ </span>
@@ -40,7 +42,7 @@ const ArticleDetail = ({
           {/* カテゴリ＆作成日 */}
           <div className="flex items-center justify-between py-1">
             <Link
-              href={`/category/${category.category}/page/1`}
+              href={`/${lng}/category/${category.category}/page/1`}
               className="label-hover w-[90px] rounded-full border-[1px] border-gray-300 p-1 px-2 text-center text-sm font-semibold text-black"
             >
               {category.category}
@@ -48,7 +50,7 @@ const ArticleDetail = ({
             <span className="text-right text-black">{formatDate2(publishedAt)}</span>
           </div>
           {/* メインイメージ */}
-          <Image
+          {/* <Image
             src={mainImage}
             priority={true}
             alt={mainTitle}
@@ -56,7 +58,7 @@ const ArticleDetail = ({
             width="0"
             height="450"
             sizes="100vw"
-          />
+          /> */}
           {/* 冒頭文 */}
           <div className="my-5 text-lg leading-10 text-black">
             {BlackText(headingText.headingText)}
@@ -120,11 +122,11 @@ const ArticleDetail = ({
             <div className="my-5 text-lg leading-10">{BlackText(footerText.footerText)}</div>
           </div>
           <h2 className="pt-3 text-black">
-            <Link className="menu-text-hover" href="/">
+            <Link className="menu-text-hover" href={`/${lng}/`}>
               HOME
             </Link>
             <span className="text-black"> ▶ </span>
-            <Link className="menu-text-hover" href={`/category/${category.category}/page/1`}>
+            <Link className="menu-text-hover" href={`/${lng}/category/${category.category}/page/1`}>
               {category.category}
             </Link>
             <span className="text-black"> ▶ </span>

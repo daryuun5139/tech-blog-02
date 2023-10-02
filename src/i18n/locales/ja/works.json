@@ -1,0 +1,8 @@
+{
+  "title1": "サイト名：東京R不動産",
+  "overview": "概要：",
+  "overview1": "東京にある少し風変わりな不動産物件を掲載するサイト。",
+  "overview2": "物件サイトを見るのが好きなので自分で作成してみました。",
+  "tech": "使用した技術：",
+  "tech1": "Next.js, tailwind, Typescript, microcms"
+}

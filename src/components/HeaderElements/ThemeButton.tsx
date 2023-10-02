@@ -3,8 +3,6 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
 
 export default function ThemeButton() {
   const { theme, setTheme } = useTheme();
@@ -27,10 +25,12 @@ export default function ThemeButton() {
           <>
             {theme === "dark" ? (
               // <DarkModeIcon fontSize="medium" />
-              <DarkModeIcon />
+              // <DarkModeIcon />
+              <p>Dark</p>
             ) : (
               // <LightModeIcon fontSize="medium" />
-              <LightModeIcon />
+              // <LightModeIcon />
+              <p>sun</p>
             )}
           </>
         )}

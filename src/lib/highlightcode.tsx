@@ -1,6 +1,14 @@
 import parse, { Element, HTMLReactParserOptions, Text } from "html-react-parser";
-import hljs, { AutoHighlightResult } from "highlight.js";
+import { AutoHighlightResult } from "highlight.js";
 import "highlight.js/styles/atom-one-dark.css";
+import hljs from "highlight.js/lib/core"; //修正部分
+import javascript from "highlight.js/lib/languages/javascript";
+import typescript from "highlight.js/lib/languages/typescript";
+import css from "highlight.js/lib/languages/css";
+
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("typescript", typescript);
+hljs.registerLanguage("css", css);
 
 const parseOptions: HTMLReactParserOptions = {
   replace: (domNode) => {

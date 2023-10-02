@@ -1,8 +1,40 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+//ANALYZE=true npm run build
+//npx depcheck
+
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({
+  reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/ja",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     domains: ["images.microcms-assets.io"],
   },
-};
+  // i18n: {
+  //   locales: ["en", "ja"],
+  //   defaultLocale: "ja",
+  // },
+});
 
-module.exports = nextConfig;
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   images: {
+//     domains: ["images.microcms-assets.io"],
+//   },
+//   i18n: {
+//     locales: ["en", "ja"],
+//     defaultLocale: "ja",
+//   },
+//   pageExtensions: ["ts", "tsx"],
+// };
+
+// module.exports = nextConfig;

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 type PaginationProps = {
   totalCount: number;
@@ -15,6 +16,7 @@ export const Pagination = ({
   pageName2,
   currentNumber,
 }: PaginationProps) => {
+  const { lng } = useParams();
   const PER_PAGE = 5;
   const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i);
@@ -24,11 +26,11 @@ export const Pagination = ({
       {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
         <div key={index} className="mx-3 text-lg">
           {pageName1 === "articles" ? (
-            <Link className="" href={`/${pageName1}/page/${number}`}>
+            <Link className="" href={`/${lng}/${pageName1}/page/${number}`}>
               {number}
             </Link>
           ) : (
-            <Link href={`/${pageName1}/${pageName2}/page/${number}`}>{number}</Link>
+            <Link href={`/${lng}/${pageName1}/${pageName2}/page/${number}`}>{number}</Link>
           )}
         </div>
       ))}

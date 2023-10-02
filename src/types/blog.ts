@@ -12,6 +12,22 @@ export type ArticleType = {
   headingText: headingTextType;
   mainText: ChapterType[];
   footerText: footerTextType;
+  blog_en: ArticleType_en;
+};
+
+export type ArticleType_en = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  mainTitle: string;
+  mainImage: MicroCMSImage;
+  category: CategoryType;
+  headingText: headingTextType;
+  mainText: ChapterType[];
+  footerText: footerTextType;
+  blog_ja: ArticleType;
 };
 
 export type headingTextType = {

@@ -3,19 +3,23 @@ import Image from "next/image";
 import FooterImage from "../../public/Season Everything With Love.svg";
 import Link from "next/link";
 
-export default function Footer() {
+type Props = {
+  lng: string;
+};
+
+export default function Footer({ lng }: Props) {
   return (
     <div className="mx-auto mb-12 mt-24 flex h-32 w-full flex-col items-center justify-center border-t-[1px] border-[#773b01] pt-16">
       <div className="mb-2 flex gap-5 text-sm sm:text-base ">
-        <Link href="/profile" className="menu-text-hover">
+        <Link href={`/${lng}/profile`} className="menu-text-hover">
           ABOUT
         </Link>
         <span>|</span>
-        <Link href="/privacypolicy" className="menu-text-hover">
+        <Link href={`/${lng}/privacypolicy`} className="menu-text-hover">
           PRIVACY POLICY
         </Link>
         <span>|</span>
-        <Link href="/contact" className="menu-text-hover">
+        <Link href={`/${lng}/contact`} className="menu-text-hover">
           CONTACT
         </Link>
       </div>

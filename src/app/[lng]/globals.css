@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  color: #773b01;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.card-text {
+  @apply py-2 text-black;
+}
+
+/* タイトル飾り線（profile,work） */
+.title-deco {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.title-deco:before {
+  position: absolute;
+  top: calc(50% - 3px);
+  left: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  content: "";
+  background-image: -webkit-repeating-linear-gradient(
+    135deg,
+    #000,
+    #000 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #000,
+    #000 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  background-size: 7px 7px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.title-deco span {
+  position: relative;
+  padding: 0.5em;
+  background-color: #ffffff;
+}
+
+/* タイトル飾り線（article, category, archive）*/
+.title-deco-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-deco-line:before,
+.title-deco-line:after {
+  border-top: 1px solid #773b01;
+  content: "";
+  width: 35%;
+}
+
+.title-deco-line:before {
+  margin-right: 1em;
+}
+
+.title-deco-line:after {
+  margin-left: 1em;
+}
+
+/* 記事カードホバー */
+.card-hover {
+  transition: all 0.5s ease 0s;
+}
+
+.card-hover:hover {
+  opacity: 0.6;
+}
+
+/* ArticleCardのHeadingTextの文字数制限 */
+.txt-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* ページTOPに戻る */
+#page_top {
+  width: 100px;
+  height: 80px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background: rgba(209, 213, 219, 0.6);
+  opacity: 1;
+  z-index: 10;
+}
+
+#page_top::before {
+  content: url(../../../public/other-icon/chevron-up-solid.svg);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -25px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top::after {
+  content: "PAGE TOP";
+  font-size: 14px;
+  color: #000;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
