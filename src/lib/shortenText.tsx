@@ -15,7 +15,7 @@ const shortenOptions: HTMLReactParserOptions = {
       return (
         <p
           {...attributesToProps(typedDomNode.attribs)}
-          className="txt-limit leading-8 text-black dark:text-[#773B01]"
+          className="leading-8 text-black dark:text-[#773B01]"
         >
           {typedDomNode.children && domToReact(typedDomNode.children, shortenOptions)}
         </p>
@@ -42,7 +42,7 @@ const convertBlackOptions: HTMLReactParserOptions = {
 };
 
 export const ShortenText = (html: string) => {
-  return <>{parse(html, shortenOptions)}</>;
+  return <div className="[&:nth-child(1)]:text-red-500">{parse(html, shortenOptions)}</div>;
 };
 
 export const BlackText = (html: string) => {

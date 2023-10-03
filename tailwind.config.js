@@ -15,6 +15,10 @@ module.exports = {
       colors: {
         darkgrey: "#222831",
       },
+      content: {
+        topImageLight: 'url("/homelogo_black.svg")',
+        topImageDark: 'url("/homelogo_brown.svg")',
+      },
     },
   },
   plugins: [],

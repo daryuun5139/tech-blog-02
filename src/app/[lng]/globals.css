@@ -42,15 +42,15 @@ body {
   content: "";
   background-image: -webkit-repeating-linear-gradient(
     135deg,
-    #000,
-    #000 1px,
+    #773b01,
+    #773b01 1px,
     transparent 2px,
     transparent 5px
   );
   background-image: repeating-linear-gradient(
     -45deg,
-    #000,
-    #000 1px,
+    #773b01,
+    #773b01 1px,
     transparent 2px,
     transparent 5px
   );
@@ -63,7 +63,6 @@ body {
   position: relative;
   padding: 0.5em;
   background-color: #ffffff;
-  dark:;
 }
 
 /* タイトル飾り線（article, category, archive）*/

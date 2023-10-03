@@ -1,8 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Providers } from "./providers";
 import { dir } from "i18next";
 import { languages } from "../../i18n/setting";
@@ -38,10 +36,8 @@ export default function RootLayout({
       </head>
       <body className="`${inter.className}` dark:bg-darkgrey">
         <Providers>
-          <div className="container mx-auto flex flex-col px-10 lg:w-[1200px] lg:px-0">
-            <Header lng={lng} />
-            <div className="min-h-[1200px]">{children}</div>
-            <Footer lng={lng} />
+          <div className="container mx-auto flex flex-col px-10">
+            <div>{children}</div>
           </div>
         </Providers>
       </body>

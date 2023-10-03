@@ -18,7 +18,6 @@ const ArticleCard = ({
   updatedAt,
 }: ArticleCardPropsType) => {
   const { lng } = useParams();
-  console.log(headingText);
 
   return (
     <Link
@@ -42,7 +41,7 @@ const ArticleCard = ({
           {category.category}
         </div>
         <h2 className="mb-2 flex truncate pl-1 text-black dark:text-[#773B01]">{mainTitle}</h2>
-        <div className="mb-1 flex h-[50px] flex-col overflow-hidden pl-1 text-sm dark:text-[#773B01]">
+        <div className="mb-1 flex h-[55px] flex-col overflow-auto pl-1 text-sm">
           {ShortenText(headingText.headingText)}
         </div>
         <div className="absolute bottom-0 right-3 flex flex-col">

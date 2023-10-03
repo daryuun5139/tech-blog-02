@@ -24,7 +24,7 @@ export default async function Works({ params: { lng } }: ParamType) {
     <>
       <div className="mx-auto flex w-full flex-col items-center justify-center py-12 lg:w-[90%]">
         <h1 className="title-deco py-4">
-          <span>works</span>
+          <span className="dark:bg-[#222831]">works</span>
         </h1>
         {/* フィールド１つ目 */}
         <div className="my-4 flex w-full justify-between rounded-md p-5 px-7">
