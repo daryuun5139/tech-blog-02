@@ -11,9 +11,7 @@ export default async function NoArticleLayout({
   return (
     <section className="mx-auto flex min-h-[1100px] flex-col lg:w-[1000px]">
       <Header lng={lng} />
-      <main className="flex justify-evenly ">
-        <main className="mx-auto flex w-[90%]">{children}</main>
-      </main>
+      <main className="mx-auto flex w-[90%] justify-center">{children}</main>
       <Footer lng={lng} />
     </section>
   );
