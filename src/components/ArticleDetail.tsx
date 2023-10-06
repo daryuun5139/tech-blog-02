@@ -16,6 +16,7 @@ const ArticleDetail = ({
   mainImage,
   category,
   headingText,
+  statusNow,
   mainText,
   footerText,
 }: ArticleDetailPropsType) => {
@@ -66,6 +67,11 @@ const ArticleDetail = ({
           {/* 冒頭文 */}
           <div className="my-5 text-lg leading-10 text-black dark:text-[#773B01]">
             {BlackText(headingText.headingText)}
+          </div>
+          {/* 執筆時ステータス */}
+          <h3 className="text-black dark:text-[#773B01]">【執筆時ステータス】</h3>
+          <div className="mb-3 rounded-sm border-[1px] border-gray-500 p-2 text-black dark:border-[#773B01] dark:text-[#773B01]">
+            {statusNow}
           </div>
           {/* 本文 */}
           <div>

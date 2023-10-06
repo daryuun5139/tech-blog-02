@@ -37,6 +37,7 @@ export default async function ArticlePage({
             mainImage={post.mainImage.url ?? ""}
             category={post.category}
             headingText={post.headingText}
+            statusNow={post.statusNow}
             mainText={post.mainText}
             footerText={post.footerText}
           />
@@ -61,6 +62,7 @@ export default async function ArticlePage({
             mainImage={post.mainImage.url ?? ""}
             category={post.category}
             headingText={post.headingText}
+            statusNow={post.statusNow}
             mainText={post.mainText}
             footerText={post.footerText}
           />

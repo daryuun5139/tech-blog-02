@@ -10,6 +10,7 @@ export type ArticleType = {
   mainImage: MicroCMSImage;
   category: CategoryType;
   headingText: headingTextType;
+  statusNow: string;
   mainText: ChapterType[];
   footerText: footerTextType;
   blog_en: ArticleType_en;
@@ -25,6 +26,7 @@ export type ArticleType_en = {
   mainImage: MicroCMSImage;
   category: CategoryType;
   headingText: headingTextType;
+  statusNow: string;
   mainText: ChapterType[];
   footerText: footerTextType;
   blog_ja: ArticleType;
@@ -83,6 +85,7 @@ export type ArticleDetailPropsType = {
   mainImage: string;
   category: CategoryType;
   headingText: headingTextType;
+  statusNow: string;
   mainText: ChapterType[];
   footerText: footerTextType;
 };
