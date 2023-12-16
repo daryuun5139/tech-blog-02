@@ -1,27 +1,28 @@
+//Header
+
+// 各Headerコンポーネントimport
 import ThemeButton from "./HeaderElements/ThemeButton";
 import HamburgerMenu from "./HeaderElements/HamburgerMenu";
 import NavBar from "./HeaderElements/NavBar";
 import CategoryBox from "./HeaderElements/CategoryBox";
 import ArchiveBox from "./HeaderElements/ArchiveBox";
 import Ja_EnButton from "./HeaderElements/Ja_EnButton";
-import { categoryCount, getIdRelation, getList, publishAtGroup } from "@/lib/dataQuery";
 import TopImage from "./HeaderElements/TopImage";
 import TopImageSmall from "./HeaderElements/TopImageSmall";
+// 各DataQuery関数のimport
+import { categoryCount, getIdRelation, getList, publishAtGroup } from "@/lib/dataQuery";
 
 type Props = {
   lng: string;
 };
+
+// export default async function Header({ lng }: Props) {
 
 export default async function Header({ lng }: Props) {
   const { categories } = await getList();
   const category_arr = await categoryCount();
   const { archiveData } = await publishAtGroup();
   const { idList_ja, idList_en } = await getIdRelation();
-
-  let theme;
-  if (typeof window !== "undefined") {
-    theme = localStorage.getItem("theme");
-  }
 
   return (
     <div className="mx-auto flex w-full flex-col items-center">
@@ -30,7 +31,7 @@ export default async function Header({ lng }: Props) {
         {/* 画面縮小時表示イメージ */}
         <TopImageSmall lng={lng} />
         <div className="mt-2 flex items-center gap-2 sm:mr-0">
-          {/* 日本語、英語切り替え& */}
+          {/* 日本語、英語切り替え */}
           <Ja_EnButton idList_ja={idList_ja} idList_en={idList_en} />
           {/* ダークモードボタン */}
           <ThemeButton />

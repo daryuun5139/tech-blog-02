@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { dir } from "i18next";
 import { languages } from "../../i18n/setting";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,13 +31,14 @@ export default function RootLayout({
   params: { lng: string };
 }) {
   return (
-    <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
+    <html lang={lng} dir={dir(lng)} suppressHydrationWarning className="scroll-auto">
       <head>
         <link rel="icon" href="data:," sizes="any" />
       </head>
       <body className="`${inter.className}` dark:bg-darkgrey">
         <Providers>
-          <div className="container mx-auto flex flex-col px-10">
+          {/* <Header lng={lng} /> */}
+          <div className="flex flex-col">
             <div>{children}</div>
           </div>
         </Providers>
